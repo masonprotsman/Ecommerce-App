@@ -158,7 +158,7 @@ export default function Pricing() {
           <div className="relative bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in slide-in-from-bottom duration-300">
             {/* Close Button */}
             <button onClick={handleClosePopup} className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" onClick={handleClosePopup}/>
             </button>
 
             {/* Header */}
