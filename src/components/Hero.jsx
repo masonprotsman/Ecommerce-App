@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronDown, Play, Sparkles, X } from 'lucide-react';
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { codeExamples, floatingCards } from '../data/CodeExamples';
@@ -8,6 +8,10 @@ export default function Hero() {
 
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [activeTab, setActiveTab] = React.useState('App.jsx');
+  const [isVideoOpen, setIsVideoOpen] = React.useState(false);
+  
+  // Replace this with your actual YouTube video ID
+  const youtubeVideoId = 'EPyyyB23NUU';
 
   React.useEffect(() => {
     function handleMouseMove(event) {
@@ -56,7 +60,7 @@ export default function Hero() {
               <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300' />
             </a>
 
-            <button className='group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-white/10 flex items-center justify-center space-x-2'>
+            <button onClick={() => setIsVideoOpen(true)} className='group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-white/10 flex items-center justify-center space-x-2'>
             <div className='p-2 bg-white/10 rounded-full group-hover:bg-white/20 duration-300 transition-colors'>
               <Play className='w-4 h-4 sm:w-5 sm:h-5 fill-white transition-transform duration-300' />
             </div>
@@ -107,6 +111,32 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Video Popup Modal */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setIsVideoOpen(false)}>
+          <div className="relative w-full max-w-5xl aspect-video animate-in slide-in-from-bottom duration-300" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsVideoOpen(false)} 
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors bg-white/10 hover:bg-white/20 rounded-full p-2 backdrop-blur-sm"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* YouTube Video Embed */}
+            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-white/10">
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0`}
+                title="Demo Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
