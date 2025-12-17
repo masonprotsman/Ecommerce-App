@@ -163,12 +163,11 @@ export default function Pricing() {
 
             {/* Header */}
             <div className="p-6 border-b border-slate-800">
-              <h3 className="text-2xl font-bold text-white mb-2">Complete Your Purchase</h3>
+              <span className='text-3xl bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent font-semibold animate-in slide-in-from-bottom duration-700'>14 Day Free Trial</span>
               <p className="text-gray-400 text-sm">
                 {selectedPlan?.name} Plan - {selectedPlan?.price}/month
               </p>
             </div>
-
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               {/* Email */}
