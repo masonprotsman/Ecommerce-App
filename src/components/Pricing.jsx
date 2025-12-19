@@ -269,7 +269,7 @@ export default function Pricing() {
                 type="submit"
                 className="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-102 hover:shadow-lg hover:shadow-blue-500/50"
               >
-                Complete Purchase
+                Start Free Trial
               </button>
 
               <button
