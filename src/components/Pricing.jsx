@@ -260,7 +260,7 @@ export default function Pricing() {
               <div className="flex items-center space-x-2 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
                 <Lock className="w-4 h-4 text-blue-400 flex-shrink-0" />
                 <p className="text-xs text-blue-300">
-                  Your information is secure and encrypted
+                  Secure and Encrypted
                 </p>
               </div>
 
